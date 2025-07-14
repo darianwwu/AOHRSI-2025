@@ -1,3 +1,5 @@
+![University Logo](assets/LogoUni.jpg)
+
 # AOHRSI-2025
 
 Welcome to our repository for road segmentation. We are comparing machine learning approaches with traditional feauture extractions.
@@ -55,18 +57,28 @@ What you have: An orthophoto with a spatial resolution of 0,2 x 0,2 m.
 3. Go to Vector > QuickOSM > QuickOSM > Quick query
 4. Fill in the following values: Key - highway, Layer extent, [Your orthophoto] (See image below)
 5. Click "Run query"
+<p float="left">
+  <img src="assets/Screenshots/OSMInterface.png" width="45%" />
+  <img src="assets/Screenshots/OSMStreets.png" width="45%" />
+</p>
 
 ### Step 2 - Get the data in the right reference system
 1. Right click on the highway line feature
 2. Click on Export > Save Features as
 3. Give it a name and for CRS pick: "Project CRS: EPSG:25832 - ETRS89 / UTM zone 32N
 4. Click on OK
+<p align="center">
+  <img src="assets/Screenshots/Reproject.png" width="750">
+</p>
 
 ### Step 3 - Buffer the lines
 1. Go to Vector > Geoprocessing Tools > Buffer
 2. Select your reprojected line layer as the input layer
 3. Select "Distance" 4 Meters (<- not degrees)
 4. Click on Run
+<p align="center">
+  <img src="assets/Screenshots/Buffer.png" width="750">
+</p>
 
 ### Step 4 - Convert Vector to Raster
 1. Go to Raster > Conversion > Rasterize (Vector to Raster)
@@ -75,12 +87,20 @@ What you have: An orthophoto with a spatial resolution of 0,2 x 0,2 m.
 4. For "Output Raster Size Units" pick "Georeferenced Units"
 5. Put in 0,2 for Height and Width
 6. Click on Run
+<p float="left">
+  <img src="assets/Screenshots/Rasterize.png" width="45%" />
+  <img src="assets/Screenshots/AfterRaster.png" width="45%" />
+</p>
 
 ### Step 5 - Cut to the right size
 1. Go to Raster > Extraction > Clip Raster by Extent
 2. Select your rasterized feature as the input layer
 3. For clipping extent select Calculate from Layer > your orthophoto
 4. Click on Run
+<p float="left">
+  <img src="assets/Screenshots/ClipToExtent.png" width="45%" />
+  <img src="assets/Screenshots/Clipped.png" width="45%" />
+</p>
 
 ### Step 6 - Preparing for testing/ training or validation
 1. Open your python IDE
