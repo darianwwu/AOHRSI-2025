@@ -19,7 +19,7 @@ from rasterio.windows import Window
 from tqdm import tqdm
 
  # Input GeoTIFF
-INPUT_TIF = "inputs/WarendorfOrtho.tif"
+INPUT_TIF = "inputs/MuensterOrtho.tif"
 OUTPUT_TIF = "outputs/predicted_mask.tif"
 MODEL_PATH = "models/roadsegmentation_model.pth"
 
