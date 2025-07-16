@@ -2,13 +2,24 @@
 
 # AOHRSI-2025
 
-Welcome to our repository for road segmentation. We are comparing machine learning approaches with traditional feauture extractions.
+Welcome to our repository for road segmentation. We are comparing machine learning approaches with traditional feauture extractions.  
 This repository documents the workflow and our code. It was done in the summer semester 2025 for the course Analysis of High-Resolution Remote Sensing Imagery by Christian Knoth at the Ifgi in Münster.
 
 # Data
-All data for training and validation was downloaded from the GEOportal.NRW (Link: https://www.geoportal.nrw/).
-The data comes from different cities in North-Rhine-Westphalia and from the dataset "	InVeKoS Digitale Orthophotos (2-fache Kompression) – Paketierung: Einzelkacheln".
+All data for training and validation was downloaded from the GEOportal.NRW (Link: https://www.geoportal.nrw/).  
+The data comes from different cities in North-Rhine-Westphalia and from the dataset "	InVeKoS Digitale Orthophotos (2-fache Kompression) – Paketierung: Einzelkacheln".  
 The data was collected in early 2025 and it has a spatial resolution of 0,2 x 0,2 m.
+
+# Further information
+After noticing the performance of the Deepness model is poor across all testes cities in NRW, a different approach was taken in addition. A basic U-Net model with an ResNet34 encoder (That was not specifically made for road segmentation) was trained with a dataset of 8 different tiles fom the above mentioned dataset (some of them are included in the imputs folder).  
+The model can be found here: https://github.com/qubvel-org/segmentation_models.pytorch  
+The performance of the models (tested on the MuensterOrtho.tif file) are:  
+| Evaluation Metric         | Own Model | Deepness Model |
+|---------------------------|-----------|----------------|
+| IoU (Jaccard Index)       | 0.5862    | 0.0780         |
+| F1-Score (Dice Coeff.)    | 0.7290    | 0.1402         |
+
+
 
 
 # Machine Learning Approach
